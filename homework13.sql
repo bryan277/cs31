@@ -78,8 +78,9 @@ BEGIN
     --    Execute the INSERT statement below only if the student is currently enrolled
     --    in less than 5 courses.
     START TRANSACTION;
-		INSERT INTO enroll(student_id, course_id) VALUES (var_student_id, var_course_id);
-		SELECT enroll
+		INSERT INTO enroll(student_id, course_id) 
+        VALUES (var_student_id, var_course_id);
+        
 
 END //
 
