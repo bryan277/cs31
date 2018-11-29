@@ -1,0 +1,19 @@
+Structured Query Language(SQL)
+a data sublanguage developed by IBM in the 1970's
+
+Five categories of SQL
+Data definition language - statements for creating tables, relationship, etc.
+Data manipulation language - statements for querying, modifying data
+SQL/Persistent Stored modules (SQL/PSM) - statements that add procedural programming capability
+Transactions control language - statements to create transactions
+Data Control Language - statements used to grant/revoke permissions
+
+Graphical User Inteface(GUI)- an interface that used graphical elements for interaction w/ user
+
+Ad- hoc Query- a query created by a user in SQL and used when needed
+
+SELECT - specifies which columns are to be listed in query results
+FROM - specifies which tables are to be listed in query results
+
+Limit x, y; #limit results to y rows starting at x
+Limit y OFFSE:T x;

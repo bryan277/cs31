@@ -1,0 +1,5 @@
+LAB 1
+
+-- (Date, EmpID) -> all other columns
+-- EmpID -> EmpName
+-- EmpDept -> HourlyRate

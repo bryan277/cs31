@@ -1,0 +1,21 @@
+LAB 5
+
+Product
+Invoice
+Salesrep
+DETAIL_LINES        DETAIL_LINES->-----------|-PRODUCT
+                      AROW DOWN                   |
+                         |                      ARROW DOWN
+                         |                      VENDOR
+                         |
+                         -
+SALESPREP--|--------< INVOICE
+                      ARROW DOWN
+                         |
+                         |
+                         |
+                         |
+                         -
+                         |
+                     CUSTOMER
+DETAIL_LINES

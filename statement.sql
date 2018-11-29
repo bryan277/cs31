@@ -1,0 +1,5 @@
+-- I finised creating the tables along with one fake inserts for each table. The fake inserts worked before referencing primary and foreign keys. 
+-- I'm having trouble with primary and foreign keys. For example. I'm getting an Error Code: 1824. Failed to open the referenced table ' INSURANCE', because the table wasn't created before CAR table, vice versa if i place INSURANCE before CAR, I get the same error. Failed to open the referenced table 'CAR'.
+-- So i tried the alter method and i get an error code: 1822. Failded to add the foreign key constraint. Missing index for constraint 'car_ibfk_1' in the referenced table 'INSURANCE'.
+
+-- A few other things. I changed Vin Integer to Varchar(17), Name to EmployyeeName, Position to EmpPosition. InvoiceNo has no primary key under INSURANCE table.

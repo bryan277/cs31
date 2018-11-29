@@ -1,0 +1,5 @@
+LAB 2 Normalization
+
+RepairNumber - PK
+RepairNumber -> All columns
+RepairCost -> RepairCost, ItemNumber

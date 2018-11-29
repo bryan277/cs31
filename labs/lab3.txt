@@ -1,0 +1,17 @@
+LAB 3
+
+2nd-partial
+3rd-Partial
+4th-transitive
+
+remove C2 C4
+
+C1 C2(FK) C3 C4 C5 C6 C7
+
+C1(FK) C3(FK) C5 C7
+
+C1(FK) C2(FK) C6 3NF
+
+C3 C5 BCNF
+
+C1 C3(FK) C7 BCNF

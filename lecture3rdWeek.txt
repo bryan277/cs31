@@ -1,0 +1,104 @@
+-- Functional Dependency - a relationship between columns in which one column or group of columns determines the value of the other
+
+Determinant - one or more columns that functionally determine another column or columns
+
+Notation
+X -> Y
+X determines Y
+or
+Y is functionally dependent on X
+Y = x + 3, x-> y
+cookieCost = numberOfBoxes * $f
+extendedPrice = quantity * unitPrice
+
+
+composite determinant - a determinant composed of more than one column
+
+Decomposition Rule - if A ->(B,C), then A -> B and B -> C
+
+Union Rule - if A -> B and A -> C, then A -> (B, C))
+
+First Table SKU
+SKU -> All other columns
+SKU -> (SKU_Description, Department, Buyer)
+SKU_Description => All other columns
+Buyer -> Department
+
+Second Table patient_prescription
+(MedName, PatientID, Date) -> All other columns
+PatientID -> PatientName
+MedName -> ShelfLife
+
+Third Table Inventory
+(WahrehouseID, SKU) -> All other columns
+SKU -> SKU_Description
+SKU_Description -> SKU
+
+Fourth Table student_class
+(StudentNumber, ClassNumber) -> All other columns
+StudentNumber -> StudentName, EmailAddress
+ClassNumber -> ClassName, Term
+
+order_item
+(OrderNumber, SKU) -> All other columns
+(Quantity, UnitPrice) -> ExtendedPrice
+
+
+SQL Arithmetic Operators
+* multiplication
+/ division
+% remainder
++ addition
+- subtraction
+DIV integer division
+MOD remainder
+
+Quantity * unitPrice - Discount
+
+SQL comparison Operators
+= checks equality
+<=> checks equality - allows NULL
+<>,!= checks not equality
+> greater QuantityOnHand
+>= greater than or equality
+< less than
+<= less than or equal
+
+Strings
+Department = 'Camping'
+DateOnWebsite <> '14-05-21'
+
+Numbers
+SKU = 100100
+ExtendedPrice < 100.75
+
+WHERE - specifies which rows are displayed
+
+
+A relation is a two dimensional array with the following characteristics
+-rows contain data about an entity
+-columns contain data about attributes of the entities
+-all entries in a column are of the same kind
+-each column has a unique name
+-cells of the table hold a single value
+-order of columns/rows in unimportant
+-no two rows are identical
+
+
+entity- something identifiable that users want to track
+attributes(column) - columns of a relation
+tuples = rows of a relation
+
+superkey - a column or combination of columns that uniquely identifies any row in a relation
+
+candidate key - the candidate key defined to the DBMS to be primary key
+
+Surrogate key - an artificial column added by the DBMS to serve as a primary key for the table
+
+foreign key - is a column or composite of columns that is the primary key of another table
+
+domain integrity constraint - a data constraint that limits data to a specific set of values
+
+entity integrity constraint - a primary key must have unique values for every row
+
+referential integrity constraint - a statement that limits the values of the foreign key to matching values of the primary key in the reference table.

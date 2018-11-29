@@ -1,0 +1,11 @@
+LAB 4
+
+MEMBER
+COMMITTEE
+SUPPLIES
+CONTRIBUTE
+STAFF ?
+NEWSLETTER ?
+
+School - code(10), school name, location, dean number
+Dean - dean number, name, phone number

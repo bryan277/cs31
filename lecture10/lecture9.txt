@@ -1,0 +1,5 @@
+strong entity- ex.customer, patient
+
+supertype- ex.student
+
+inclusive subtypes - ex.hiking club 

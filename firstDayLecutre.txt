@@ -1,0 +1,57 @@
+Data-recorded facts and numbers
+
+Database- structure used to hold or store Data
+
+Database application - a program that serves as an intermediary between user and DBMS
+
+relational Database - used structured data and ACID
+transactions
+A-Atomicity
+C-Consistency
+I-Isolation
+D-Durability
+
+Concurrency - when multiple users modify the same data at the same time
+
+DBMS-software used to create, process, and administer the database
+
+NoSQL Database - used for massive amounts of unstructured data(used for big data)
+
+Primary key - a unique identifier for each row
+
+Composite key - a key composed of more than one column
+
+Surrogate key - a primary key automatically generate and assigned by the database
+
+foreign key - provides the link between two tables i.e. creates a relationship between the two tables
+
+information - knowledge derived from data, data presented in a meaningful context, data processed by summing, averaging grouping, or other similar operations(DBMS software used)
+
+metadata - data concerning the structure of the data that are used to describe tables, columns, indexes, etc.
+
+
+Problems w/ file-processing systems
+-data is separated and isolated
+-data is often duplicated
+-application program dependent
+-slow
+-not secure
+
+DBMS solutions
+-data is integrated
+-data duplication is reduced
+-DBM is application independent
+-stored data can be shared
+-security restrictions
+
+
+Online transactions processing system(OLTP)
+-an operational database system available for and dictated to, transactions processing
+
+Data warehouse - a store of enterprise data that is designated to facilitate management decision making
+
+Cape Codd tables
+RETAIL_ORDER(orderNumber, StoreNumber, StoreZip, OrderMonth, OrderYear, OrderTotal)
+ORDER_ITEM(OrderNumber, SKU, Quantity, Price, ExtendedPrice)
+
+Schema - complete logical view of the database, continuing all tables, columns, primary keys and foreign keys

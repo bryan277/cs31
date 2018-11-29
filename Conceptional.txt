@@ -1,0 +1,95 @@
+Transforming a conceptional model into a logical model
+-Step 1: create a table for each entity
+  -Specify a primary key
+  -Specify a alternate keys
+  -Specify properties for each column
+    -Null status
+    -Data type
+    -Default value
+    -Data constraints
+
+-Step 2: create relationship by placing foreign keys
+  -relationship between strong entities (1:1, 1:N, N:M)
+
+  MEMBER                       LOCKER
+  MemberID                     LockerID
+  Other Data -|-0---------0-|- Other Data
+                               MemberID FK
+
+
+1:N
+
+EMPLOYEE                        COMPUTER
+EmployeeID -|-0------------0-|- ComputerID
+Other Data                      Other Data
+                                EmployeeID FK
+
+N:M
+
+EMPLOYEE                        SKILL
+EmployeeID >-0--------------|-< Other Data
+Other Data
+
+
+EMPLOYEE                       EMPLOYEE_SKILL_INT                 SKILL
+EmployeeID -|-|-----------|-<- EmployeeID ->-0---------------|-|- SkillID
+OtherData                      SkillID                            Other Data
+
+
+Recursive
+1:1
+
+PREQUEL                SEQUEL
+MovieID -|-0-----0-|-  MovieID
+OtherTable             OtherData
+                       MovieID FK
+
+MOVIE
+MovieID       Prequel
+OtherData     Reference
+PrequelID FK  MovieID
+
+
+1:N Recursive
+
+MANAGER                       STAFF
+ManagerID |-0-------------0-< StaffID
+Other Data                    ManagerID
+
+EMPLOYEE
+EmployeeID    ManagerID
+Other Data    references EmployeeID
+ManagerID
+
+ManagerID -|-0--------0-<- EmployeeID
+
+
+N:M Recursive
+
+PART A                        PART B
+Part ID    ->-0--------0-<-   PartID
+Description                   Description
+
+
+Part A                   PART_A_PART_B       PartID, ContainsPartID, PART_A_PART_B references PartID in PART A
+Part ID     |-|-----0-<  PartID
+Description              ContainsPartID
+
+
+1:N
+
+ARTIST                    WORK
+ArtistID   -|-|------0-<  WorkID
+Other Data                OtherData
+                          ArtistID FK
+
+
+PRODUCT                    ORDER
+ProductID  ->-0------0-<   OrderID
+Other Data                 OtherData
+
+PRODUCT                  LINE_ITEM                ORDER
+ProductID -|-|-------0-< ProductID->-0-------|-|- OrderID
+Other Data               OrderID                  Other Data
+                         Quantity
+                         Price
