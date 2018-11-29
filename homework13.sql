@@ -14,7 +14,14 @@ CREATE TABLE player (
 -- 1. CREATE calc_perc TRIGGER here.
 --    This TRIGGER should calculate and modify the perc_success
 --    column based on the values of the success and attempt columns.
+DROP TRIGGER IF EXISTS ins_ext_succes;
+DROP TRIGGER IF EXISTS log_deletes;
 
+CREATE TRIGGER ins_ext_succes
+BEFORE INSERT ON player
+FOR EACH ROW
+	SET NEW.perc_success = NEW.success/NEW.attempt;
+	
 INSERT INTO player (player_id, player_name, success, attempt) VALUES
     (1, 'Player 1', 1, 10), (2, 'Player 2', 2, 10), (3, 'Player 3', 3, 10), (4, 'Player 4', 4, 10),
 	(5, 'Player 5', 5, 10), (6, 'Player 6', 6, 10), (7, 'Player 7', 7, 10), (8, 'Player 8', 8, 10),
@@ -70,9 +77,9 @@ BEGIN
 	-- 2. Complete the PROCEDURE here.
     --    Execute the INSERT statement below only if the student is currently enrolled
     --    in less than 5 courses.
-
-	INSERT INTO enroll(student_id, course_id) VALUES (var_student_id, var_course_id);
-
+    START TRANSACTION;
+		INSERT INTO enroll(student_id, course_id) VALUES (var_student_id, var_course_id);
+		SELECT enroll
 
 END //
 
