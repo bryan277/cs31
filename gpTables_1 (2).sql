@@ -90,6 +90,10 @@ INSERT INTO CAR VALUES (
 	'5XYKWDA74EG536501', 'ACURA', 'Tsx', 'Silver', '7BZV690', 'Sedan', 12, '2018-01-14 09:35:00
 ',1);
 
+INSERT INTO CAR VALUES (
+	'5XYKWDA74EG536510', 'Toyota', 'Tundra', 'Silver', '7BZV610', 'Truck', 69, '2018-01-14 09:35:00
+',1);
+
 INSERT INTO EMPLOYEE VALUES (
 	123, 'Arthur Morgan', 'Agent', 'No', '2015-01-14 09:30:00','558515277', 35000.00, null);
     
