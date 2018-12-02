@@ -82,6 +82,31 @@ CREATE TABLE MAINTENANCE (
 									REFERENCES CAR (Vin)
 );
 
+CREATE TABLE CUSTOMER (
+	CustomerID			Integer 			NOT NULL,
+    CustomerName		Varchar (255)		NOT NULL,
+    Address 			Varchar (255)		NOT NULL,
+    DriverLicense		Varchar (255)		NOT NULL,
+    Phone				Varchar (12) 		NOT NULL,
+    CONSTRAINT			CUSTOMER_PK			PRIMARY KEY (CustomerID)
+);
+
+CREATE TABLE INVOICE (
+	InvoiceNo			Integer				NOT NULL,
+    Price				Decimal				NULL,
+    DateCheckout		Datetime			NOT NULL,
+    Gas					Decimal				NULL,
+    CustomerID			Integer				NOT NULL,
+    InsuranceID			Integer				NOT NULL,
+    Vin					Varchar (17)		NOT NULL,
+    EmployeeID			Integer				NOT NULL,
+    CONSTRAINT			INVOICE_PK			PRIMARY KEY (InvoiceNO, CustomerID, InsuranceID, Vin, EmployeeID),
+    CONSTRAINT			INVOICE_INS_FK		FOREIGN KEY (InsuranceID)
+									REFERENCES INSURANCE (InsuranceID)
+);
+
+
+
 INSERT INTO CAR VALUES (
 	'5XYKWDA74EG536509', 'GT-R', 'NISSAN', 'WHITE', '7BZV628', 'Sedan', 123, '2018-01-14 09:30:00
 ',1);
@@ -112,6 +137,9 @@ INSERT INTO INSURANCE VALUES (
 INSERT INTO MAINTENANCE VALUES (
 	1, '2018-01-14 09:30:00', '5XYKWDA74EG536509', 4232, 'No service required', 'No comment'
 );
+
+INSERT INTO CUSTOMER VALUES (
+	1, 'Jason Bourne', '212 Castle St, Anaheim CA 92833', 'X9570908', '202-555-0153');
 -- For error 1452. Create new sql file and type in SET FOREIGN_KEY_CHECKS=0;
 
 
