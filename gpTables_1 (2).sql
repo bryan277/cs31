@@ -26,14 +26,6 @@ CREATE TABLE BADGE (
 							REFERENCES  EMPLOYEE (EmployyeeID)
 	);
     
-CREATE TABLE INSURANCE (
-	InsuranceNo	       	Integer 	    	NOT NULL,
-    Vin					Varchar (17)		NOT NULL,
-    InvoiceNo			Integer 			NOT NULL, -- There is no primary key for InvoiceNO?
-    CarCondition		Varchar (255) 		NOT NULL, 
-    RepairType			Varchar (255) 		NOT NULL,
-    CONSTRAINT			INVENTORY_PK		PRIMARY KEY (Vin, InsuranceNo)
-);
 
 CREATE TABLE CAR (
 	Vin       			Varchar (17) 	    NOT NULL,	-- Int to Varchar (17)
@@ -84,25 +76,40 @@ CREATE TABLE MAINTENANCE (
 
 CREATE TABLE CUSTOMER (
 	CustomerID			Integer 			NOT NULL,
-    CustomerName		Varchar (255)		NOT NULL,
+    CustomerName		Varchar (255)		NOT NULL,	-- Name to customer
     Address 			Varchar (255)		NOT NULL,
     DriverLicense		Varchar (255)		NOT NULL,
     Phone				Varchar (12) 		NOT NULL,
     CONSTRAINT			CUSTOMER_PK			PRIMARY KEY (CustomerID)
 );
 
+CREATE TABLE INSURANCE (
+	InsuranceNo	       	Integer 	    	NOT NULL,
+    Vin					Varchar (17)		NOT NULL,
+    InvoiceNo			Integer 			NOT NULL, -- There is no primary key for InvoiceNO?
+    CarCondition		Varchar (255) 		NOT NULL, 
+    RepairType			Varchar (255) 		NOT NULL,
+    CONSTRAINT			INSURANCE_PK		PRIMARY KEY (Vin, InsuranceNo)
+);
+
 CREATE TABLE INVOICE (
 	InvoiceNo			Integer				NOT NULL,
-    Price				Decimal				NULL,
+    Price				Float				NULL,        -- int to float
     DateCheckout		Datetime			NOT NULL,
     Gas					Decimal				NULL,
     CustomerID			Integer				NOT NULL,
-    InsuranceID			Integer				NOT NULL,
+    InsuranceNo			Integer				NOT NULL,
     Vin					Varchar (17)		NOT NULL,
     EmployeeID			Integer				NOT NULL,
-    CONSTRAINT			INVOICE_PK			PRIMARY KEY (InvoiceNO, CustomerID, InsuranceID, Vin, EmployeeID),
-    CONSTRAINT			INVOICE_INS_FK		FOREIGN KEY (InsuranceID)
-									REFERENCES INSURANCE (InsuranceID)
+    CONSTRAINT			INVOICE_PK			PRIMARY KEY (InvoiceNo, CustomerID, InsuranceNo, Vin, EmployeeID),
+    CONSTRAINT			INVOICE_CUS_FK		FOREIGN KEY (CustomerID)
+									REFERENCES CUSTOMER (CustomerID),
+    CONSTRAINT			INVOICE_INS_FK		FOREIGN KEY (InsuranceNo)
+									REFERENCES INSURANCE (InsuranceNo),
+	CONSTRAINT			INVOICE_VIN_FK		FOREIGN KEY (Vin)
+									REFERENCES CAR (Vin),
+	CONSTRAINT			INVOICE_EMP_FK		FOREIGN KEY (EmployeeID)
+									REFERENCES EMPLOYEE (EmployeeID)
 );
 
 
@@ -140,6 +147,10 @@ INSERT INTO MAINTENANCE VALUES (
 
 INSERT INTO CUSTOMER VALUES (
 	1, 'Jason Bourne', '212 Castle St, Anaheim CA 92833', 'X9570908', '202-555-0153');
+    
+INSERT INTO INVOICE VALUES (
+	1, 29.99, '2018-01-14 09:45:00', 35, 1, 1, '5XYKWDA74EG536509', 123
+);
 -- For error 1452. Create new sql file and type in SET FOREIGN_KEY_CHECKS=0;
 
 
